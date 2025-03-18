@@ -3,14 +3,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #fafafa;
     line-height: 1.6;
 }
 
 /* Estilo do cabeçalho */
 header {
-    background-color: #004080;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(255, 255, 255);
     padding: 20px 0;
     text-align: center;
 }
@@ -65,7 +65,7 @@ footer {
 }
 
 h1, h2, h3 {
-    color: #35424a;
+    color: #000000;
 }
 
 table {
@@ -75,7 +75,7 @@ table {
 }
 
 table, th, td {
-    border: 1px solid #35424a;
+    border: 1px solid #0dce17;
 }
 
 th, td {

@@ -33,7 +33,7 @@
         </section>
         <section>
             <h2>Exemplos de Aplicação</h2>
-            <table>
+            <table id="tabela-exemplos">
                 <thead>
                     <tr>
                         <th>Tensão (V)</th>
@@ -62,7 +62,7 @@
         </section>
         <section>
             <h2>Calcule a Tensão</h2>
-            <form>
+            <form id="form-calculo">
                 <label for="corrente">Corrente (A):</label>
                 <input type="number" id="corrente" name="corrente" required>
                 <label for="resistencia">Resistência (Ω):</label>
@@ -74,5 +74,34 @@
     <footer>
         <p>&copy; 2023 Lei de Ohm. Todos os direitos reservados.</p>
     </footer>
+    <script>
+        document.getElementById('form-calculo').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio do formulário
+
+            // Obtém os valores de corrente e resistência
+            const corrente = parseFloat(document.getElementById('corrente').value);
+            const resistencia = parseFloat(document.getElementById('resistencia').value);
+
+            if (!isNaN(corrente) && !isNaN(resistencia)) {
+                // Calcula a tensão
+                const tensao = corrente * resistencia;
+
+                // Adiciona uma nova linha na tabela
+                const tabela = document.getElementById('tabela-exemplos').querySelector('tbody');
+                const novaLinha = tabela.insertRow();
+                novaLinha.innerHTML = `
+                    <td>${tensao.toFixed(2)}</td>
+                    <td>${corrente}</td>
+                    <td>${resistencia}</td>
+                `;
+
+                // Limpa os campos do formulário
+                document.getElementById('corrente').value = '';
+                document.getElementById('resistencia').value = '';
+            } else {
+                alert('Por favor, insira valores válidos para corrente e resistência.');
+            }
+        });
+    </script>
 </body>
 </html>
