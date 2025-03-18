@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz - Lei de Ohm</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .certo {
+            color: green;
+            font-weight: bold;
+        }
+        .errado {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,31 +32,76 @@
     <main>
         <h2>Teste seus conhecimentos!</h2>
         <form id="quiz-form">
-            <div class="question">
+            <div class="question" id="q1-container">
                 <label>1. Qual é a fórmula da Lei de Ohm?</label><br>
                 <input type="radio" name="q1" value="a"> A) V = I + R<br>
                 <input type="radio" name="q1" value="b"> B) V = I * R<br>
                 <input type="radio" name="q1" value="c"> C) V = I / R<br>
             </div>
-            <div class="question">
+            <div class="question" id="q2-container">
                 <label>2. O que representa a letra "I" na fórmula da Lei de Ohm?</label><br>
                 <input type="radio" name="q2" value="a"> A) Tensão<br>
                 <input type="radio" name="q2" value="b"> B) Corrente<br>
                 <input type="radio" name="q2" value="c"> C) Resistência<br>
             </div>
-            <div class="question">
+            <div class="question" id="q3-container">
                 <label>3. Se a tensão é 12V e a resistência é 4Ω, qual é a corrente?</label><br>
                 <input type="radio" name="q3" value="a"> A) 3A<br>
                 <input type="radio" name="q3" value="b"> B) 4A<br>
                 <input type="radio" name="q3" value="c"> C) 12A<br>
             </div>
+            <div class="question" id="q4-container">
+                <label>4. Se a corrente é 2A e a resistência é 5Ω, qual é a tensão?</label><br>
+                <input type="radio" name="q4" value="a"> A) 10V<br>
+                <input type="radio" name="q4" value="b"> B) 7V<br>
+                <input type="radio" name="q4" value="c"> C) 12V<br>
+            </div>
+            <div class="question" id="q5-container">
+                <label>5. Se a tensão é 24V e a corrente é 3A, qual é a resistência?</label><br>
+                <input type="radio" name="q5" value="a"> A) 6Ω<br>
+                <input type="radio" name="q5" value="b"> B) 8Ω<br>
+                <input type="radio" name="q5" value="c"> C) 12Ω<br>
+            </div>
             <button type="submit">Enviar Respostas</button>
         </form>
-        <div id="result"></div>
     </main>
     <footer>
         <p>&copy; 2023 Lei de Ohm. Todos os direitos reservados.</p>
     </footer>
-    <script src="../js/script.js"></script>
+    <script>
+        document.getElementById('quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio do formulário
+
+            // Respostas corretas
+            const respostasCorretas = {
+                q1: 'b',
+                q2: 'b',
+                q3: 'b',
+                q4: 'a',
+                q5: 'a'
+            };
+
+            // Limpa mensagens anteriores
+            document.querySelectorAll('.feedback').forEach(el => el.remove());
+
+            // Verifica as respostas
+            for (const [pergunta, respostaCorreta] of Object.entries(respostasCorretas)) {
+                const respostaUsuario = document.querySelector(`input[name="${pergunta}"]:checked`);
+                const container = document.getElementById(`${pergunta}-container`);
+                const feedback = document.createElement('p');
+                feedback.classList.add('feedback');
+
+                if (respostaUsuario && respostaUsuario.value === respostaCorreta) {
+                    feedback.textContent = 'Certo!';
+                    feedback.classList.add('certo');
+                } else {
+                    feedback.textContent = 'Errado!';
+                    feedback.classList.add('errado');
+                }
+
+                container.appendChild(feedback);
+            }
+        });
+    </script>
 </body>
 </html>
