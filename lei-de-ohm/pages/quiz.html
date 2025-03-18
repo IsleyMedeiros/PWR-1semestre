@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Lei de Ohm</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Quiz sobre a Lei de Ohm</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="fundamentos.html">Fundamentos</a></li>
+                <li><a href="formula.html">Fórmula</a></li>
+                <li><a href="exemplos.html">Exemplos</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Teste seus conhecimentos!</h2>
+        <form id="quiz-form">
+            <div class="question">
+                <label>1. Qual é a fórmula da Lei de Ohm?</label><br>
+                <input type="radio" name="q1" value="a"> A) V = I + R<br>
+                <input type="radio" name="q1" value="b"> B) V = I * R<br>
+                <input type="radio" name="q1" value="c"> C) V = I / R<br>
+            </div>
+            <div class="question">
+                <label>2. O que representa a letra "I" na fórmula da Lei de Ohm?</label><br>
+                <input type="radio" name="q2" value="a"> A) Tensão<br>
+                <input type="radio" name="q2" value="b"> B) Corrente<br>
+                <input type="radio" name="q2" value="c"> C) Resistência<br>
+            </div>
+            <div class="question">
+                <label>3. Se a tensão é 12V e a resistência é 4Ω, qual é a corrente?</label><br>
+                <input type="radio" name="q3" value="a"> A) 3A<br>
+                <input type="radio" name="q3" value="b"> B) 4A<br>
+                <input type="radio" name="q3" value="c"> C) 12A<br>
+            </div>
+            <button type="submit">Enviar Respostas</button>
+        </form>
+        <div id="result"></div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Lei de Ohm. Todos os direitos reservados.</p>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

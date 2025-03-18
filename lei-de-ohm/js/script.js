@@ -1,0 +1,1 @@
+// Este arquivo contém scripts JavaScript para funcionalidades interativas, como o quiz ou manipulação de elementos da página.
